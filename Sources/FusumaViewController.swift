@@ -293,19 +293,21 @@ public final class FusumaViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue(), {
                         self.delegate?.fusumaImageSelected(result!)
                         
-                        self.dismissViewControllerAnimated(true, completion: {
-                            self.delegate?.fusumaDismissedWithImage?(result!)
-                        })
+                        //philip.tong: do not handle close, delegate control the flow
+//                        self.dismissViewControllerAnimated(true, completion: {
+//                            self.delegate?.fusumaDismissedWithImage?(result!)
+//                        })
                     })
                 }
             })
         } else {
             print("no image crop ")
             delegate?.fusumaImageSelected(view.image)
-            
-            self.dismissViewControllerAnimated(true, completion: {
-                self.delegate?.fusumaDismissedWithImage?(view.image)
-            })
+
+            //philip.tong: do not handle close, delegate control the flow
+//            self.dismissViewControllerAnimated(true, completion: {
+//                self.delegate?.fusumaDismissedWithImage?(view.image)
+//            })
         }
     }
     
@@ -317,10 +319,11 @@ extension FusumaViewController: FSAlbumViewDelegate, FSCameraViewDelegate, FSVid
     func cameraShotFinished(image: UIImage) {
         
         delegate?.fusumaImageSelected(image)
-        self.dismissViewControllerAnimated(true, completion: {
-            
-            self.delegate?.fusumaDismissedWithImage?(image)
-        })
+        
+        //philip.tong: do not handle close, delegate control the flow
+//        self.dismissViewControllerAnimated(true, completion: {
+//            self.delegate?.fusumaDismissedWithImage?(image)
+//        })
     }
     
     // MARK: FSAlbumViewDelegate
