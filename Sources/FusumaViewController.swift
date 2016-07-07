@@ -59,7 +59,8 @@ public final class FusumaViewController: UIViewController {
     }
 
     public var hasVideo = false
-
+    public var dismissViewAfterSelected = true
+    
     var mode: Mode = Mode.Camera
     public var modeOrder: FusumaModeOrder = .LibraryFirst
     var willFilter = true
@@ -294,9 +295,12 @@ public final class FusumaViewController: UIViewController {
                         self.delegate?.fusumaImageSelected(result!)
                         
                         //philip.tong: do not handle close, delegate control the flow
-//                        self.dismissViewControllerAnimated(true, completion: {
-//                            self.delegate?.fusumaDismissedWithImage?(result!)
-//                        })
+                        if (self.dismissViewAfterSelected)
+                        {
+                            self.dismissViewControllerAnimated(true, completion: {
+                                self.delegate?.fusumaDismissedWithImage?(result!)
+                            })
+                        }
                     })
                 }
             })
@@ -305,9 +309,12 @@ public final class FusumaViewController: UIViewController {
             delegate?.fusumaImageSelected(view.image)
 
             //philip.tong: do not handle close, delegate control the flow
-//            self.dismissViewControllerAnimated(true, completion: {
-//                self.delegate?.fusumaDismissedWithImage?(view.image)
-//            })
+            if (self.dismissViewAfterSelected)
+            {
+                self.dismissViewControllerAnimated(true, completion: {
+                    self.delegate?.fusumaDismissedWithImage?(view.image)
+                })
+            }
         }
     }
     
@@ -321,9 +328,12 @@ extension FusumaViewController: FSAlbumViewDelegate, FSCameraViewDelegate, FSVid
         delegate?.fusumaImageSelected(image)
         
         //philip.tong: do not handle close, delegate control the flow
-//        self.dismissViewControllerAnimated(true, completion: {
-//            self.delegate?.fusumaDismissedWithImage?(image)
-//        })
+        if (self.dismissViewAfterSelected)
+        {
+            self.dismissViewControllerAnimated(true, completion: {
+                self.delegate?.fusumaDismissedWithImage?(image)
+            })
+        }
     }
     
     // MARK: FSAlbumViewDelegate
