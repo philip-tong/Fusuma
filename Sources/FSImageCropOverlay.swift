@@ -10,21 +10,20 @@ import UIKit
 
 final class FSImageCropOverlay: UIView {
 
+    @IBOutlet var cropAreaView: UIView!
+    
     required init(coder: NSCoder) {
-        super.init(coder: coder)
+        super.init(coder: coder)!
         
-        if (self)
-        {
-            let firstView = NSBundle.mainBundle().loadNibNamed("FSImageCropOverlay", owner: self, options: nil).first
-            self.addSubview(firstView)
-            
-            firstView.translatesAutoresizingMaskIntoConstraints = false;
-            
-            self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Top))
-            self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Left))
-            self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Bottom))
-            self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Right))
-        }
+        let firstView = NSBundle.mainBundle().loadNibNamed("FSImageCropOverlay", owner: self, options: nil).first as! UIView
+        self.addSubview(firstView)
+        
+        firstView.translatesAutoresizingMaskIntoConstraints = false;
+        
+        self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Top))
+        self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Left))
+        self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Bottom))
+        self.addConstraint(self.pin(firstView, attribute:NSLayoutAttribute.Right))
     }
 
     

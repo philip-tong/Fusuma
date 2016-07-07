@@ -6,25 +6,64 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSImageCropOverlay" customModule="Fusuma" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FSImageCropOverlay" customModule="Fusuma" customModuleProvider="target">
+            <connections>
+                <outlet property="cropAreaView" destination="HjC-8W-drN" id="tOQ-Yp-oL8"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjC-8W-drN">
+                <view userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-bF-Zer">
+                    <rect key="frame" x="0.0" y="0.0" width="75" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq6-tn-8aF">
+                    <rect key="frame" x="525" y="0.0" width="75" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjC-8W-drN">
                     <rect key="frame" x="75" y="0.0" width="450" height="600"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="HjC-8W-drN" secondAttribute="height" multiplier="3:4" id="MbX-L4-rD4"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8C-Rc-6B2">
+                    <rect key="frame" x="75" y="0.0" width="450" height="0.0"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWn-sV-dIp">
+                    <rect key="frame" x="75" y="600" width="450" height="0.0"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="HjC-8W-drN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3tB-hU-cQk"/>
                 <constraint firstItem="HjC-8W-drN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="707-R2-gFX"/>
                 <constraint firstAttribute="bottom" secondItem="HjC-8W-drN" secondAttribute="bottom" id="B1X-6i-y8m"/>
+                <constraint firstItem="Lq6-tn-8aF" firstAttribute="leading" secondItem="RWn-sV-dIp" secondAttribute="trailing" id="Edh-Or-PzW"/>
+                <constraint firstItem="b8C-Rc-6B2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IMl-vB-90z"/>
+                <constraint firstAttribute="bottom" secondItem="RWn-sV-dIp" secondAttribute="bottom" id="JGd-ru-09I"/>
+                <constraint firstItem="HjC-8W-drN" firstAttribute="leading" secondItem="xtN-bF-Zer" secondAttribute="trailing" id="Ph0-2D-QCf"/>
+                <constraint firstAttribute="bottom" secondItem="xtN-bF-Zer" secondAttribute="bottom" id="Szn-mi-F7X"/>
+                <constraint firstItem="Lq6-tn-8aF" firstAttribute="leading" secondItem="b8C-Rc-6B2" secondAttribute="trailing" id="cNB-gA-0wl"/>
+                <constraint firstItem="RWn-sV-dIp" firstAttribute="top" secondItem="HjC-8W-drN" secondAttribute="bottom" id="hBM-Up-Mt3"/>
+                <constraint firstItem="Lq6-tn-8aF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="k0u-sd-n5K"/>
+                <constraint firstItem="RWn-sV-dIp" firstAttribute="leading" secondItem="xtN-bF-Zer" secondAttribute="trailing" id="nkx-qO-mmz"/>
+                <constraint firstItem="xtN-bF-Zer" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qww-1d-4r8"/>
+                <constraint firstAttribute="bottom" secondItem="Lq6-tn-8aF" secondAttribute="bottom" id="rkR-Td-4ku"/>
+                <constraint firstItem="Lq6-tn-8aF" firstAttribute="leading" secondItem="HjC-8W-drN" secondAttribute="trailing" id="t4H-Bi-HQZ"/>
+                <constraint firstItem="HjC-8W-drN" firstAttribute="top" secondItem="b8C-Rc-6B2" secondAttribute="bottom" id="tEZ-9W-Aa0"/>
+                <constraint firstAttribute="trailing" secondItem="Lq6-tn-8aF" secondAttribute="trailing" id="wCp-eN-anz"/>
+                <constraint firstItem="xtN-bF-Zer" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xxW-hU-hpm"/>
+                <constraint firstItem="b8C-Rc-6B2" firstAttribute="leading" secondItem="xtN-bF-Zer" secondAttribute="trailing" id="zyP-oR-QXy"/>
             </constraints>
         </view>
     </objects>
